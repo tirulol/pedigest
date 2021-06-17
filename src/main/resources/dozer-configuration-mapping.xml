@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+   
+   <configuration>
+   	<custom-converters> <!-- these are always bi-directional -->
+   	
+   		<converter type="com.sinensia.pedigest.backend.dozer.BooleanToSiNoMapper" >
+        	<class-a>java.lang.String</class-a>
+        	<class-b>java.lang.Boolean</class-b>
+      	</converter>
+
+    </custom-converters>     
+  </configuration>
+   
+   
+   
+    <!-- Integration TO Business -->
+  	  
+  	<mapping> 
+    	<class-a>com.sinensia.pedigest.backend.integration.model.ClientePL</class-a>
+    	<class-b>com.sinensia.pedigest.backend.business.model.Cliente</class-b>
+  	</mapping>
+  	
+  	<mapping> 
+    	<class-a>com.sinensia.pedigest.backend.integration.model.ProductoPL</class-a>
+    	<class-b>com.sinensia.pedigest.backend.business.model.Producto</class-b>
+  	</mapping>
+  	
+  	<!-- Business TO Presentation -->
+  	
+  	<mapping>
+  		<class-a>com.sinensia.pedigest.backend.business.model.Cliente</class-a>
+  		<class-b>com.sinensia.pedigest.backend.presentation.model.ClienteVO</class-b>
+  	</mapping>
+  	
+  	<mapping>
+  		<class-a>com.sinensia.pedigest.backend.business.model.Producto</class-a>
+  		<class-b>com.sinensia.pedigest.backend.presentation.model.ProductoVO</class-b>
+  		<field custom-converter="com.sinensia.pedigest.backend.dozer.BooleanToSiNoMapper">
+  			<a>descatalogado</a>
+  			<b>descatalogado</b>
+  		</field>
+  		
+  	</mapping>
+   	
+</mappings>

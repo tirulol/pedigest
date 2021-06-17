@@ -1,0 +1,9 @@
+- Necesitamos implementar...
+
+HTTP method	  end-point
+============= ========================
+GET 		  /camareros
+GET 		  /camareros/{id}
+POST		  /camareros
+DELETE		  /camareros/{id}
+PUT			  /camareros

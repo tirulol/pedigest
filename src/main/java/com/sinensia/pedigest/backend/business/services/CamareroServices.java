@@ -2,7 +2,7 @@ package com.sinensia.pedigest.backend.business.services;
 
 import java.util.List;
 
-import com.sinensia.pedigest.backend.integration.model.CamareroPL;
+import com.sinensia.pedigest.backend.business.model.Camarero;
 
 public interface CamareroServices {
 	
@@ -12,9 +12,9 @@ public interface CamareroServices {
 	 * le otorga el sistema.
 	 * 
 	 */
-	public CamareroPL create(CamareroPL camarero);
+	public Camarero create(Camarero camarero);
 	
-	public CamareroPL read(int id);
+	public Camarero read(int id);
 	
 	/**
 	 * <h2>Actualiza en el sistema los datos del camarero</h2>
@@ -27,7 +27,7 @@ public interface CamareroServices {
 	 * </ol>
 	 * 
 	 */
-	public void update(CamareroPL camarero);
+	public void update(Camarero camarero);
 	
 	/**
 	 * Elimina un camarero a través de su id.
@@ -36,6 +36,6 @@ public interface CamareroServices {
 	 */
 	public boolean delete(int id);
 	
-	public List<CamareroPL> getAll();
+	public List<Camarero> getAll();
 	
 }

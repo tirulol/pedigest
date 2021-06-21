@@ -2,14 +2,14 @@ package com.sinensia.pedigest.backend.business.services.impl;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import com.sinensia.pedigest.backend.business.model.Pedido;
 import com.sinensia.pedigest.backend.business.services.PedidoServices;
-import com.sinensia.pedigest.backend.integration.model.PedidoPL;
 import com.sinensia.pedigest.backend.integration.repositories.PedidoPLRepository;
 
 @Service
@@ -17,32 +17,44 @@ import com.sinensia.pedigest.backend.integration.repositories.PedidoPLRepository
 public class PedidoServicesImpl implements PedidoServices {
 
 	@Autowired
-	private PedidoPLRepository pedidoRepository;
+	private PedidoPLRepository pedidoPLRepository;
+	
+	@Autowired
+	private DozerBeanMapper mapper;
 	
 	@Override
-	public List<PedidoPL> getAll() {
-		return pedidoRepository.findAll();
+	public List<Pedido> getAll() {
+		//TODO
+		return null;
+	}
+	
+	@Override
+	public Pedido read(Integer codigo) {
+		//TODO
+		return null;
+	}
+	
+	
+	// ********************************************************************************
+
+	@Override
+	public Pedido create(Pedido pedido) {
+		//TODO
+		return null;
+	}
+
+	
+
+	@Override
+	public List<Pedido> getBetweenFechas(Date desde, Date hasta) {
+		//TODO
+		return null;
 	}
 
 	@Override
-	public PedidoPL create(PedidoPL pedido) {
-		return pedidoRepository.save(pedido);
-	}
-
-	@Override
-	public PedidoPL read(Integer codigo) {
-		Optional<PedidoPL> optional = pedidoRepository.findById(codigo);
-		return optional.isPresent() ? optional.get() : null;
-	}
-
-	@Override
-	public List<PedidoPL> getBetweenFechas(Date desde, Date hasta) {
-		return pedidoRepository.findByFechaHoraBetween(desde, hasta);
-	}
-
-	@Override
-	public List<PedidoPL> getByCamarero(int codigo) {
-		return pedidoRepository.findByCamareroId(codigo);
+	public List<Pedido> getByCamarero(int codigo) {
+		//TODO
+		return null;
 	}
 
 }

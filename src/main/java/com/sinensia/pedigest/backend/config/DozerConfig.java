@@ -1,4 +1,4 @@
-package com.sinensia.pedigest.backend.dozer;
+package com.sinensia.pedigest.backend.config;
 
 import java.util.Arrays;
 import java.util.List;

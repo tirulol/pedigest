@@ -32,19 +32,13 @@ public class ClienteVOServicesImpl implements ClienteVOServices {
 	public List<ClienteVO> getAll() {
 		final List<Cliente> clientes = clienteServices.getAll();
 		
-		System.out.println(clientes);
-		
+	
 		final List<ClienteVO> clientesVO = new ArrayList<>();
 		
 		for(Cliente cliente: clientes) {
 			ClienteVO clienteVO = mapper.map(cliente, ClienteVO.class);
-			
-			//clienteVO.setCodigo(cliente.getCodigo()); // Parche!!!!! //TODO 
-			
 			clientesVO.add(clienteVO);
 		}
-		
-		System.out.println(clientesVO);
 		
 		return clientesVO;
 	}

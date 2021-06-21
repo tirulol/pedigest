@@ -33,7 +33,6 @@ public class ClienteServicesImpl implements ClienteServices {
 	
 	@Override
 	public Cliente read(int codigo) {
-		
 		final Optional<ClientePL> optional = clientePLRepository.findById(codigo);
 		ClientePL clientePL = null;
 		
@@ -60,20 +59,11 @@ public class ClienteServicesImpl implements ClienteServices {
 	@Override
 	public List<Cliente> getAll() {
 		
-		List<ClientePL> clientesPL = clientePLRepository.findAll();
-		
-		System.out.println(clientesPL);
-		
-		List<Cliente> clientes = new ArrayList<>();
+		final List<ClientePL> clientesPL = clientePLRepository.findAll();
+		final List<Cliente> clientes = new ArrayList<>();
 		
 		for(ClientePL clientePL: clientesPL) {
-			Cliente cliente = mapper.map(clientePL, Cliente.class);
-			
-			// cliente.setCodigo(clientePL.getCodigo()); // parche!!!!
-			
-			clientes.add(cliente);
-		
-			
+			clientes.add(mapper.map(clientePL, Cliente.class));
 		}
 		
 		return clientes;

@@ -2,18 +2,19 @@ package com.sinensia.pedigest.backend.business.services.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.sinensia.pedigest.backend.business.model.Pedido;
 import com.sinensia.pedigest.backend.business.services.PedidoServices;
+import com.sinensia.pedigest.backend.integration.model.PedidoPL;
 import com.sinensia.pedigest.backend.integration.repositories.PedidoPLRepository;
 
 @Service
-@Primary
 public class PedidoServicesImpl implements PedidoServices {
 
 	@Autowired
@@ -24,14 +25,13 @@ public class PedidoServicesImpl implements PedidoServices {
 	
 	@Override
 	public List<Pedido> getAll() {
-		//TODO
-		return null;
+		return pedidoPLRepository.findAll().stream().map(x -> mapper.map(x, Pedido.class)).collect(Collectors.toList());
 	}
 	
 	@Override
 	public Pedido read(Integer codigo) {
-		//TODO
-		return null;
+		Optional<PedidoPL> optional = pedidoPLRepository.findById(codigo);
+		return optional.isPresent() ? mapper.map(optional.get(),Pedido.class) : null;
 	}
 	
 	

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sinensia.pedigest.backend.integration.model.PedidoPL;
+import com.sinensia.pedigest.backend.presentation.model.PedidoVO;
 import com.sinensia.pedigest.backend.presentation.services.PedidoVOServices;
 
 @RestController
@@ -22,13 +22,13 @@ public class PedidoController {
 	private PedidoVOServices pedidoVOServices;
 	
 	@GetMapping("/pedidos")
-	public List<PedidoPL> getAll(@RequestParam (name="camarero", required = false) Integer codigoCamarero){
-		// TODO 
-		return null;
+	public List<PedidoVO> getAll(@RequestParam (name="camarero", required = false) Integer codigoCamarero){
+		
+		return pedidoVOServices.getAll();
 	}
 	
 	@GetMapping("/pedidos/{codigo}")
-	public PedidoPL getById(@PathVariable Integer codigo) {
+	public PedidoVO getById(@PathVariable Integer codigo) {
 		//TODO
 		return null;
 	}

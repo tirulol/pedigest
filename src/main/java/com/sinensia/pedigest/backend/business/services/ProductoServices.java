@@ -44,7 +44,7 @@ public interface ProductoServices {
 	public Map<String, Double> getEstadisticaPreciomedioPorFamilias();
 	
 	/**
-	 * El m�todo recibe una colecci�n de productos e incrementa sus precios seg�n porcentaje
+	 * El m�todo recibe una colección de productos e incrementa sus precios seg�n porcentaje
 	 * 
 	 * ejemplo: Si un producto vale 100.00 � y el porcentaje es 10.0 (%) el precio queda en 110.00 � 
 	 * 

@@ -1,11 +1,13 @@
 package com.sinensia.pedigest.backend.presentation.services.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sinensia.pedigest.backend.business.model.Pedido;
 import com.sinensia.pedigest.backend.business.services.PedidoServices;
 import com.sinensia.pedigest.backend.presentation.model.PedidoVO;
 import com.sinensia.pedigest.backend.presentation.services.PedidoVOServices;
@@ -21,14 +23,13 @@ public class PedidoVOServicesImpl implements PedidoVOServices{
 	
 	@Override
 	public List<PedidoVO> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return pedidoServices.getAll().stream().map(x -> mapper.map(x, PedidoVO.class)).collect(Collectors.toList());
 	}
 
 	@Override
 	public PedidoVO getById(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		final Pedido pedido = pedidoServices.read(codigo);
+		return mapper.map(pedido, PedidoVO.class);
 	}
 
 }
